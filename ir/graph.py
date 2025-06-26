@@ -1,3 +1,5 @@
+from ir.device import get_device_info
+
 class OpNode:
     def __init__(self, name, op_type, shape, dtype, inputs=None):
         self.name = name
@@ -9,4 +11,7 @@ class OpNode:
 class Graph:
     def __init__(self, ops):
         self.ops = ops                  
-        self.device = None              
+        self.device = None            
+
+    def bind_device(self, idx=0):
+        self.device = get_device_info(idx)  
