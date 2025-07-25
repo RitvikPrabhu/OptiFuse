@@ -186,7 +186,6 @@ int main(int argc, char **argv) {
   CUDA_CHECK(cudaLaunchCooperativeKernel((void *)Kernel::kernel, grid, block,
                                          params, smem));
   CUDA_CHECK(cudaDeviceSynchronize());
-  printf("v7 dual GEMM finished\n");
   cudaFree(dA);
   cudaFree(dB1);
   cudaFree(dB2);
